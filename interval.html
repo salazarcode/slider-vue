@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rojo{
+            position: relative;
+            height: 100px;
+            width: 100px;
+            background: red;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="rojo"></div>
+
+
+    <script>
+
+        function fadeOutAndres(elem, time){
+            var opacidad = window.getComputedStyle(elem,null).getPropertyValue("opacity");
+
+            var ejecucion = setInterval(function(){
+                opacidad -= 0.05;
+                elem.style.opacity = opacidad;
+                if(opacidad <= 0)
+                    clearInterval(ejecucion);
+            },time);              
+        };
+
+        function fadeInAndres(elem, time){
+            var opacidad = 0;
+            elem.style.opacity = opacidad;
+
+            var ejecucion = setInterval(function(){
+                opacidad += 0.05;
+                elem.style.opacity = opacidad;
+                if(opacidad => 1)
+                    clearInterval(ejecucion);
+            },time);              
+        };        
+
+        document.querySelector(".rojo").onclick = function(){
+            fadeOutAndres(event.target, 20)  
+        };
+  
+    </script>
+</body>
+
+</html>
