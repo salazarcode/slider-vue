@@ -33,19 +33,20 @@
         };
 
         function fadeInAndres(elem, time){
-            var opacidad = 0;
-            elem.style.opacity = opacidad;
+            elem.style.opacity = 0;
 
             var ejecucion = setInterval(function(){
-                opacidad += 0.05;
-                elem.style.opacity = opacidad;
-                if(opacidad => 1)
+                elem.style.opacity += 0.05; 
+                console.log((elem.style.opacity));
+                if((elem.style.opacity) >= 1){
+                    alert("entraste");
                     clearInterval(ejecucion);
+                }
             },time);              
         };        
 
         document.querySelector(".rojo").onclick = function(){
-            fadeOutAndres(event.target, 20)  
+            fadeInAndres(event.target, 20)  
         };
   
     </script>
